@@ -1,0 +1,57 @@
+<div ng-controller="mainCtrl">
+
+<a ng-show="destView" class="btn-floating btn-large waves-effect waves-light red" ng-click="addDest()"><h5>+</h5></a>
+<div ng-show="destView">
+        <div class="row">
+        <div class="col s6 m6" ng-repeat="dest in destList track by $index">
+          <div class="card hoverable">
+            <div class="card-image">
+              <img class = "cardimage" ng-src={{dest.image}}>
+              <span class="card-title">{{dest.city}}, {{dest.country}}</span>
+            </div>
+            <div class="card-content">
+            </div>
+            <div class="card-action">
+              <a ng-click="modDest(this)">Modify</a>
+              <a ng-click="destItin(this)">Itinerary</a>
+              <a href="#">Delete</a>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+
+<div class="indigo lighten-4" ng-hide="destView">
+  <h5>{{formtype}}</h5>
+  <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input required id="city" type="text" class="validate" ng-model="destDet.city">
+          <label class ="active" for="city">City</label>
+        </div>
+        <div class="input-field col s6">
+          <input required id="country" type="text" class="validate" ng-model="destDet.country">
+          <label class ="active" for="country" >Country</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input required id="image" type="text" class="validate" ng-model="destDet.image">
+          <label class ="active" for="image">Image URL</label>
+        </div>
+      </div>
+      <div class="row">
+      <button class="btn waves-effect waves-light" type="submit" name="action" ng-click="upDest(destDet,dest.form)" ng-disabled="!(!!destDet.city && !!destDet.country  && !!destDet.image)">Submit
+  </button>
+        <button class="btn waves-effect waves-light" type="submit" name="action" ng-click="destView=true">Return
+  </button>
+        
+      </div>
+    </form>
+  </div>
+        
+
+</div>
+
+</div>

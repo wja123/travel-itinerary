@@ -1,0 +1,54 @@
+  <div ng-controller="itinCtrl">
+
+    <h3>{{curDest.city}}, {{curDest.country}} </h3>
+
+    <a ng-hide="addItinShow" class="btn-floating btn-large waves-effect waves-light red" ng-click="addForm()"><h5>+</h5></a>
+    <a ng-hide="addItinShow" class="btn-floating btn-large waves-effect waves-light red" ui-sref="home"><h5>Back</h5></a>
+
+    <div ng-click="getItinDetails(this)" ng-show ="hasNotes" ng-hide="addItinShow" class="collection" ng-repeat ="itin in itinList track by $index">
+      <a class="collection-item">{{itin.location}}<span class="badge" ng-click="delItem(this)">Delete</span></a>
+    </div>
+
+
+    <div class="row" ng-show="addItinShow">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="location" type="text" class="validate" ng-model="newNote.location">
+            <label class = "active" for="location">Location</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input required id="arrival_date" type="date" class="validate" ng-model="newNote.arrival_date">
+            <label class = "active" for="arrival_date" >Arrival Date</label>
+          </div>
+          <div class="input-field col s6">
+            <input required id="arrival_time" type="time" class="validate" ng-model="newNote.arrival_time">
+            <label class = "active" for="arrival_time" >Arrival Time</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input required id="departure_date" type="date" class="validate" ng-model="newNote.departure_date">
+            <label class = "active" for="arrival_date" >Departure Date</label>
+          </div>
+          <div class="input-field col s6">
+            <input required id="arrival_time" type="time" class="validate" ng-model="newNote.departure_time">
+            <label class = "active" for="arrival_time" >Departure Time</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input required id="notes" type="text" class="validate" ng-model="newNote.description">
+            <label class = "active" for="notes">Notes</label>
+          </div>
+        </div>
+        <div class="row">
+          <a class="waves-effect waves-light btn" ng-click="addItin(newNote)">Add</a>
+          <a class="waves-effect waves-light btn">Return</a>
+        </div>
+      </form>
+    </div>
+
+  </div>
