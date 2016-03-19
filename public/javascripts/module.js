@@ -13,11 +13,6 @@
              templateUrl: "/partials/home.html",
              contoller: "mainCtrl"
          })
-         .state("destinations", {
-             url: "/destinations",
-             templateUrl: "/partials/destinations.html",
-             controller: "destCtrl"
-         })
          .state("itinerary", {
              url: "/itinerary/",
              templateUrl: "/partials/itinerary.html",
